@@ -68,7 +68,7 @@ pipeline {
         // Consider using --severity-threshold=<low|medium|high> for more granularity (see snyk help for more info).
         stage('Snyk Test using Snyk CLI') {
             steps {
-                sh './snyk test --fail-on=upgradable --severity-threshold=high --org=demo_high --target-reference="$(git branch --show-current)"'
+                sh './snyk test --fail-on=upgradable --severity-threshold=high --org=demo_high --target-reference=docker-tomcat'
             }
         }
 
@@ -77,7 +77,7 @@ pipeline {
         stage('Snyk Monitor using Snyk CLI') {
             steps {
                 // Use your own Snyk Organization with --org=<your-org>
-                sh './snyk monitor --fail-on=upgradable --severity-threshold=medium --org=demo_high --target-reference="$(git branch --show-current)"'
+                sh './snyk monitor --fail-on=upgradable --severity-threshold=medium --org=demo_high --target-reference=docker-tomcat'
             }
         }
 
