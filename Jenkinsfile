@@ -28,7 +28,7 @@ pipeline {
 
         stage('Git Clone') {
             steps {
-                git url: 'https://github.com/lmaeda/java-goof.git'
+                git url: 'https://github.com/lmaeda/java-goofs.git'
 
                 sh 'ls -la'
             }
