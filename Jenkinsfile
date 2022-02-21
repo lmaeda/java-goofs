@@ -90,7 +90,7 @@ pipeline {
             steps {
                 // Use your own Snyk Organization with --org=<your-org>
                 //sh './snyk container test --severity-threshold=critical --project-name=java-goofs javagoof:orig'
-                sh './snyk container test --severity-threshold=critical --project-name=snyk-demo-blueocean myjenkins-blueocean:2.319.2-1'
+                sh './snyk container test --severity-threshold=critical --project-name=snyk-demo-blueocean docker:dind'
             }
         }
         
@@ -100,7 +100,7 @@ pipeline {
             steps {
                 // Use your own Snyk Organization with --org=<your-org>
                 //sh './snyk container monitor --severity-threshold=critical --project-name=java-goofs javagoof:orig'
-                sh './snyk container monitor --severity-threshold=critical --project-name=snyk-demo-blueocean myjenkins-blueocean:2.319.2-1'
+                sh './snyk container monitor --severity-threshold=critical --project-name=snyk-demo-blueocean docker:dind'
             }
         }
         
