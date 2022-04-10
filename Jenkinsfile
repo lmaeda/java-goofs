@@ -28,8 +28,8 @@ pipeline {
 
         stage('Git Clone') {
             steps {
-                //git url: 'https://github.com/lmaeda/java-goofs.git'
-                git url: 'https://github.com/lmaeda/BingAds-Java-SDK.git'
+                git url: 'https://github.com/lmaeda/java-goofs.git'
+                //git url: 'https://github.com/lmaeda/BingAds-Java-SDK.git'
 
                 sh 'ls -la'
             }
@@ -46,7 +46,7 @@ pipeline {
         stage('Download Snyk CLI') {
             steps {
                 sh '''
-                    latest_version=$(curl -Is "https://github.com/snyk/snyk/releases/latest" | grep "^location" | sed s#.*tag/##g | tr -d "\r")
+                    latest_version=$(curl -LIs "https://github.com/snyk/snyk/releases/latest" | grep "^location" | sed s#.*tag/##g | tr -d "\r" | grep -v "^location")
                     echo "Latest Snyk CLI Version: ${latest_version}"
                     snyk_cli_dl_linux="https://github.com/snyk/snyk/releases/download/${latest_version}/snyk-linux"
                     echo "Download URL: ${snyk_cli_dl_linux}"
