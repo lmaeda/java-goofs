@@ -89,8 +89,8 @@ pipeline {
         stage('Snyk Container Test using Snyk CLI') {
             steps {
                 // Use your own Snyk Organization with --org=<your-org>
-                sh './snyk container test --severity-threshold=critical --project-name=java-goofs --fail-on=upgradable --org=luc.maeda javagoof:orig'
-                //sh './snyk container test --severity-threshold=critical --project-name=snyk-demo-blueocean docker:dind'
+                //sh './snyk container test --severity-threshold=critical --project-name=java-goofs --fail-on=upgradable --org=luc.maeda javagoof:orig'
+                sh './snyk container test --severity-threshold=critical --project-name=snyk-demo-blueocean docker:dind'
             }
         }
         
@@ -99,8 +99,8 @@ pipeline {
         stage('Snyk Container Monitor using Snyk CLI') {
             steps {
                 // Use your own Snyk Organization with --org=<your-org>
-                sh './snyk container monitor --severity-threshold=critical --project-name=java-goofs --fail-on=upgradable --org=luc.maeda javagoof:orig'
-                //sh './snyk container monitor --severity-threshold=critical --project-name=snyk-demo-blueocean docker:dind'
+                //sh './snyk container monitor --severity-threshold=critical --project-name=java-goofs --fail-on=upgradable --org=luc.maeda javagoof:orig'
+                sh './snyk container monitor --severity-threshold=critical --project-name=snyk-demo-blueocean docker:dind'
             }
         }
         
