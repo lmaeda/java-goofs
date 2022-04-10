@@ -28,8 +28,8 @@ pipeline {
 
         stage('Git Clone') {
             steps {
-                git url: 'https://github.com/lmaeda/java-goofs.git'
-                //git url: 'https://github.com/lmaeda/BingAds-Java-SDK.git'
+                //git url: 'https://github.com/lmaeda/java-goofs.git'
+                git url: 'https://github.com/lmaeda/BingAds-Java-SDK.git'
 
                 sh 'ls -la'
             }
@@ -69,8 +69,8 @@ pipeline {
         // Consider using --severity-threshold=<low|medium|high> for more granularity (see snyk help for more info).
         stage('Snyk Test using Snyk CLI') {
             steps {
-                sh './snyk test --fail-on=upgradable --severity-threshold=critical --project-name=java-goofs --org=demo_high --target-reference=docker-tomcat'
-                //sh './snyk test --fail-on=upgradable --severity-threshold=critical --project-name=BingAds-Java-SDK --org=demo_high --target-reference=main'
+                //sh './snyk test --fail-on=upgradable --severity-threshold=critical --project-name=java-goofs --org=demo_high --target-reference=docker-tomcat'
+                sh './snyk test --fail-on=upgradable --severity-threshold=critical --project-name=BingAds-Java-SDK --org=demo_high --target-reference=main'
             }
         }
 
@@ -79,8 +79,8 @@ pipeline {
         stage('Snyk Monitor using Snyk CLI') {
             steps {
                 // Use your own Snyk Organization with --org=<your-org>
-                sh './snyk monitor --fail-on=upgradable --severity-threshold=critical --project-name=java-goofs --org=demo_high --target-reference=docker-tomcat'
-                //sh './snyk monitor --fail-on=upgradable --severity-threshold=critical --project-name=BingAds-Java-SDK --org=demo_high --target-reference=main'
+                //sh './snyk monitor --fail-on=upgradable --severity-threshold=critical --project-name=java-goofs --org=demo_high --target-reference=docker-tomcat'
+                sh './snyk monitor --fail-on=upgradable --severity-threshold=critical --project-name=BingAds-Java-SDK --org=demo_high --target-reference=main'
             }
         }
 
