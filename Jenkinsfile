@@ -3,7 +3,7 @@ pipeline {
 
     // Install the Jenkins tools you need for your project / environment
     tools {
-        maven 'maven' // Refers to a global tool configuration for Maven called 'maven-3.8.3'
+        //maven 'maven' // Refers to a global tool configuration for Maven called 'maven-3.8.3'
     }
 
     // Pull your Snyk token from a Jenkins encrypted credential
@@ -69,7 +69,6 @@ pipeline {
         // Consider using --severity-threshold=<low|medium|high> for more granularity (see snyk help for more info).
         stage('Snyk Test using Snyk CLI') {
             steps {
-                sh 'mvn -e -X package'
                 sh './snyk test --fail-on=upgradable --severity-threshold=critical --project-name=java-goofs --org=demo_high --target-reference=docker-tomcat'
                 //sh './snyk test --fail-on=upgradable --severity-threshold=critical --project-name=BingAds-Java-SDK --org=demo_high --target-reference=main'
             }
