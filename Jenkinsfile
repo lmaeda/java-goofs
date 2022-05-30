@@ -60,7 +60,8 @@ pipeline {
 
         stage('Build') {
             steps {
-              sh 'mvn -e -X package'
+              //sh 'mvn -e -X package'
+              sh 'mvn -e '
               //sh './mvnw test -Dsnyk.skip'
             }
         }
