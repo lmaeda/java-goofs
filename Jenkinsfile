@@ -61,6 +61,7 @@ pipeline {
         stage('Build') {
             steps {
               sh 'mvn -e -X package'
+              sh 'cd ./todolist-core/'
               //sh './mvnw test -Dsnyk.skip'
             }
         }
