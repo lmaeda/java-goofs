@@ -61,6 +61,7 @@ pipeline {
         stage('Build') {
             steps {
               sh 'mvn -e -X package'
+              sh 'mvn dependency:tree -DoutputType=dot --batch-mode --non-recursive --file="todolist-web-common/pom.xml"'
               //sh './mvnw test -Dsnyk.skip'
             }
         }
