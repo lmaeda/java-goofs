@@ -70,7 +70,8 @@ pipeline {
         stage('Snyk Test using Snyk CLI') {
             steps {
                 //sh './snyk test --fail-on=upgradable --severity-threshold=critical --project-name=java-goofs --org=demo_high --target-reference=docker-tomcat'
-                sh './snyk test --fail-on=upgradable --severity-threshold=critical --project-name=BingAds-Java-SDK --org=demo_high --target-reference=main'
+                sh './snyk test --fail-on=upgradable --severity-threshold=critical --org=demo_high'
+                //sh './snyk test --fail-on=upgradable --severity-threshold=critical --project-name=BingAds-Java-SDK --org=demo_high --target-reference=main'
             }
         }
 
@@ -80,7 +81,8 @@ pipeline {
             steps {
                 // Use your own Snyk Organization with --org=<your-org>
                 //sh './snyk monitor --fail-on=upgradable --severity-threshold=critical --project-name=java-goofs --org=demo_high --target-reference=docker-tomcat'
-                sh './snyk monitor --fail-on=upgradable --severity-threshold=critical --project-name=BingAds-Java-SDK --org=demo_high --target-reference=main'
+                sh './snyk monitor --fail-on=upgradable --severity-threshold=critical --remote-repo-url=TestSnykCSM_mvn_04 --org=demo_high'
+                //sh './snyk monitor --fail-on=upgradable --severity-threshold=critical --project-name=BingAds-Java-SDK --org=demo_high --target-reference=main'
             }
         }
 
