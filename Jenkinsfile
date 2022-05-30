@@ -60,8 +60,8 @@ pipeline {
 
         stage('Build') {
             steps {
-              sh 'mvn -e -X package'
               sh 'cd ./todolist-core/'
+              sh 'mvn -e -X package'
               //sh './mvnw test -Dsnyk.skip'
             }
         }
